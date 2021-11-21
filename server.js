@@ -19,13 +19,13 @@ app.use(session({
     resave: false
 }));
 
-const exphbs = require('express-hbs');
+const { engine } = require('express-handlebars');
 
 // Serve static resources
 app.use('/public', express.static('public'));
 
 // Render View
-app.engine('hbs', exphbs({
+app.engine('hbs', engine({
     extname: 'hbs',
     // defaultLayout: 'layout',
     // layoutDir: __dirname + '/views/layouts',
@@ -33,7 +33,7 @@ app.engine('hbs', exphbs({
 }));
 
 app.set('view engine', 'hbs');
-app.set('views', __dirname + '/views');
+app.set('views', __dirname + '/views/partials');
 
 // User router
 const user = require('./routes/user.routes');
