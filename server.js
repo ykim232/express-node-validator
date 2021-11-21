@@ -37,7 +37,8 @@ app.set('views', __dirname + '/views/partials');
 
 // User router
 const user = require('./routes/user.routes');
-// Initiate API
+
+// Initiate API 
 app.use('/user', user)
 
 
